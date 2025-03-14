@@ -1,0 +1,948 @@
+:root {
+    --orange: rgb(255, 165, 0);
+}
+
+@supports (--css: color(display-p3 1 0.5 0)) {
+    :root {
+        --orange: color(display-p3 1 0.5 0);
+    }
+}
+
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+    font-optical-sizing: auto;
+    color: white;
+    margin-top: 0;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
+}
+
+nav > ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav > ul > li {
+    margin-right: 1.5rem;
+    font-size: 200%;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+header a:hover {
+    color: var(--orange);
+    transform: scale(1.1);
+}
+
+#backgroundImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#homepageMain, #aboutpageMain, #workexppageMain, #resumepageMain {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+main > section {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+section#homepageSection {
+    font-size: 200%;
+    text-align: center;
+    width: 400px;
+    animation: slideUpFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+h2 > span {
+    color: var(--orange);
+}
+
+button {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: color(display-p3 1 0.3 0);
+}
+
+button > a {
+    text-decoration: none;
+    color: black;
+}
+
+footer#homepageFooter {
+    position: relative;
+    margin-left: -8px;
+    margin-bottom: -9px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* About Page */
+
+header#aboutpageHeader {
+    position: relative;
+    margin-left: -8px;
+}
+
+header#aboutpageHeader li:last-child {
+    padding-right: 23px;
+}
+
+section#aboutpageSection {
+    font-size: 120%;
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    animation: slideUpFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#aboutpageSection h2 {
+    font-size: 2rem;
+    color: var(--orange);
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+section#aboutpageSection img {
+    border-radius: 10px;
+    margin: 1rem 0;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+section#aboutpageSection img:hover {
+    transform: scale(1.05);
+}
+
+#aboutpageIntro {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+#aboutpageIntro hgroup {
+    text-align: left;
+    font-size: 200%;
+}
+
+#aboutpageIntro p > span {
+    color: var(--orange);
+}
+
+#aboutpageIntro img:hover {
+    transform: scale(1.05);
+}
+
+section#aboutpageSection article {
+    font-size: 130%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+    width: 100%;
+    max-width: 700px;
+    margin: 1rem 0;
+    animation: slideUpFadeIn 0.2s ease-out forwards;
+}
+
+section#aboutpageSection h3 {
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+section#aboutpageSection ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section#aboutpageSection ul li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#aboutpageSection table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+section#aboutpageSection th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+}
+
+section#aboutpageSection th {
+    text-decoration: underline;
+}
+
+section#aboutpageSection th {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+section#aboutpageSection td {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+footer#aboutpageFooter {
+    position: relative;
+    margin-left: -8px;
+    margin-bottom: -9px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* Projects Page */
+
+header#projectspageHeader {
+    position: relative;
+    margin-left: -8px;
+}
+
+header#projectspageHeader li:last-child {
+    padding-right: 23px;
+}
+
+#projectspageMain {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 100%;
+    animation: slideUpFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+aside {
+    width: 25%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+aside form {
+    display: flex;
+    flex-direction: column;
+}
+
+datalist {
+    display: none !important;
+}
+
+aside input {
+    display: flex;
+    width: 98%;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+aside label, dt {
+    font-size: 180%;
+}
+
+aside label {
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+aside dt {
+    padding: 10px;
+}
+
+aside dl dd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+aside dl dd button {
+    padding: 10px;
+}
+
+#projectspageSection {
+    width: 70%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+}
+
+#projects h2 {
+    font-size: 200%;
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+.projectItem {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.projectItem img {
+    border-radius: 10px;
+    margin: 1rem 0;
+    width: 180px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.projectItem img:hover {
+    transform: scale(1.1);
+}
+
+.projectItem hgroup {
+    flex-grow: 1;
+    font-size: 180%;
+}
+
+#projects h3 {
+    color: var(--orange);
+}
+
+.projectItem hgroup a {
+    color: white;
+}
+
+.projectItem hgroup a:hover {
+    color: var(--orange);
+    transform: scale(1.1);
+}
+
+dl button {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+dl button:hover {
+    background: color(display-p3 1 0.3 0);
+}
+
+hr {
+    width: 100%;
+}
+
+#submitBtn {
+    background-color: white;
+    color: black;
+}
+
+footer#projectspageFooter {
+    position: absolute;
+    margin-left: -8px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* Work Exp. Page */
+
+header#workexppageHeader {
+    position: relative;
+    margin-left: -8px;
+}
+
+header#workexppageHeader li:last-child {
+    padding-right: 23px;
+}
+
+section#workexppageSection {
+    font-size: 120%;
+    text-align: left;
+    width: 80%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    animation: slideUpFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#workexppageSection h2 {
+    font-size: 200%;
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+.workexpItem {
+    font-size: 130%;
+}
+
+#workexppageSection h3 {
+    font-size: 130%;
+    color: var(--orange);
+}
+
+footer#workexppageFooter {
+    position: absolute;
+    margin-left: -8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* Resume Page */
+
+header#resumepageHeader {
+    position: relative;
+    margin-left: -8px;
+}
+
+header#resumepageHeader li:last-child {
+    padding-right: 23px;
+}
+
+footer#resumepageFooter {
+    position: absolute;
+    margin-left: -8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* Contact Page */
+
+header#contactpageHeader {
+    position: relative;
+    margin-left: -8px;
+}
+
+header#contactpageHeader li:last-child {
+    padding-right: 23px;
+}
+
+#contactpageMain {
+    display: flex;
+    justify-content: center;
+}
+
+section#contactpageSection {
+    font-size: 120%;
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    animation: slideUpFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#contactpageSection article {
+    font-size: 130%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+    width: 100%;
+    max-width: 700px;
+    margin: 1rem 0;
+    animation: slideUpFadeIn 0.2s ease-out forwards;
+}
+
+section#contactpageSection img {
+    border-radius: 10px;
+    margin: 1rem 0;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+section#contactpageSection img:hover {
+    transform: scale(1.05);
+}
+
+#contactpageIntro {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+#contactpageIntro hgroup {
+    text-align: left;
+}
+
+#contactpageSection h2 {
+    font-size: 200%;
+    color: var(--orange);
+}
+
+#contactpageSection h3 {
+    font-size: 130%;
+    color: var(--orange);
+}
+
+#contactpageLinks {
+    display: flex;
+    gap: 20px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+legend {
+    color: var(--orange);
+}
+
+input, textarea {
+    width: 98%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:user-invalid, textarea:user-invalid {
+    border-color: red;
+    background-color: #ffe6e6;
+    border-width: 3px;
+}
+
+input:valid, textarea:valid {
+    border-color: green;
+    background-color: #e6ffe6;
+    border-width: 3px;
+}
+
+input.flash, textarea.flash {
+    animation: flash 0.3s alternate 2;
+}
+
+@keyframes flash {
+    from { background-color: #ffcccc; }
+    to { background-color: white; }
+}
+
+textarea {
+    resize: vertical;
+    min-height: 15px;
+}
+
+.required {
+    color: var(--orange);
+}
+
+output {
+    font-size: 20px;
+    padding-top: 3px;
+}
+
+.error {
+    color: red;
+    height: 14px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.error.hidden {
+    opacity: 0;
+}
+
+.info {
+    color: gray;
+}
+
+.info.warning {
+    color: orange;
+}
+
+.info.error {
+    color: red;
+}
+
+#requiredMessage {
+    font-size: 20px;
+}
+
+footer#contactpageFooter {
+    position: absolute;
+    margin-left: -8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 120%;
+}
+
+/* Light Theme */
+
+#theme-toggle {
+    display: none;
+}
+
+.js-enabled #theme-toggle {
+    display: block;
+    background: none;
+    padding: 0;
+    font-size: 20px;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.5);
+}
+
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #00b3ff;
+}
+
+.light-theme #backgroundImg {
+    content: url("./media/laptopLight.jpg");
+}
+
+.light-theme #projectspageSection {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-color);
+}
+
+.light-theme aside {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-color);
+}
+
+.light-theme #submitBtn {
+    background-color: black;
+    color: white;
+}
+
+.light-theme nav a:hover {
+    color: var(--accent-color);
+}
+
+.light-theme #homepageSection {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme p, h2, tr, address, h4, label {
+    color: var(--text-color);
+}
+
+.light-theme h2 > span {
+    color: var(--accent-color);
+}
+
+.light-theme button {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.light-theme ul > li {
+    color: var(--text-color);
+}
+
+.light-theme #aboutpageSection article {
+    background: rgba(201, 201, 201, 0.8);
+}
+
+.light-theme #aboutpageSection h3 {
+    color: var(--accent-color);
+}
+
+.light-theme #aboutpageSection h2 {
+    color: var(--accent-color);
+}
+
+.light-theme #aboutpageSection span {
+    color: var(--accent-color);
+}
+
+.light-theme #aboutpageSection li {
+    background-color: var(--accent-color);
+}
+
+.light-theme button:hover {
+    background-color: #0080ff;
+}
+
+.light-theme #aboutpageSection {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme #projects h2 {
+    color: var(--accent-color);
+}
+
+.light-theme #projects h3 {
+    color: var(--accent-color);
+}
+
+.light-theme #projectspageMain label {
+    color: var(--accent-color);
+}
+
+.light-theme .projectItem hgroup a {
+    color: var(--text-color);
+}
+
+.light-theme .projectItem hgroup a:hover {
+    color: var(--accent-color);
+}
+
+.light-theme footer p {
+    color: white;
+}
+
+.light-theme header a:hover {
+    color: var(--accent-color);
+}
+
+.light-theme #workexppageSection {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme #workexppageSection h2 {
+    color: var(--accent-color);
+}
+
+.light-theme #workexppageSection h3 {
+    color: var(--accent-color);
+}
+
+.light-theme #resumepageSection {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme #contactpageSection {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme #contactpageSection article {
+    background: rgba(201, 201, 201, 0.8);
+}
+
+.light-theme #contactpageSection h2 {
+    color: var(--accent-color);
+}
+
+.light-theme legend {
+    color: var(--accent-color);
+}
+
+.light-theme #contactpageSection span {
+    color: var(--accent-color);
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    body {
+        font-size: 2.5dvw;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    iframe {
+        width: 500px;
+        height: 700px;
+    }
+
+    #projectspageSection {
+        width: 100%;
+    }
+
+    .projectItem img {
+        width: 90px;
+    }
+
+    .projectItem hgroup a {
+        background-color: var(--orange);
+        font-size: 20px;
+        padding: 10px;
+    }
+    
+    .projectItem hgroup a:hover {
+        color: black;
+    }
+
+    #projectspageFooter {
+        z-index: -1;
+    }
+}
+
+/* Tablet or Restrictive Laptop */
+@media (min-width: 481px) and (max-width: 1024px)  {
+    body {
+        font-size: 2dvw;
+    }
+    
+    button {
+        font-size: 0.9rem;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    aside {
+        display: none;
+    }
+
+    iframe {
+        width: 600px;
+        height: 800px;
+    }
+
+    #projectspageSection {
+        width: 100%;
+    }
+
+    .projectItem img {
+        width: 120px;
+    }
+
+    .projectItem hgroup a {
+        background-color: var(--orange);
+        font-size: 20px;
+        padding: 10px;
+    }
+    
+    .projectItem hgroup a:hover {
+        color: black;
+    }
+
+    #projectspageFooter {
+        z-index: -1;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    body {
+        font-size: 100%;
+    }
+}
