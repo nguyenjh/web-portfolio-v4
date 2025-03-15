@@ -97,3 +97,118 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Fetch data from projects.json
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed'); // Check if this logs
+
+    fetch('projects.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data fetched:', data); // Check if this logs the correct data
+            const projectsContainer = document.getElementById('projects');
+            if (!projectsContainer) {
+                console.error('Projects container not found');
+                return;
+            }
+            console.log('Projects container found:', projectsContainer); // Check if this logs
+            data.forEach(project => {
+                const card = document.createElement('project-card');
+                card.setAttribute('title', project.title);
+                card.setAttribute('image', project.image);
+                card.setAttribute('description', project.description);
+                card.setAttribute('link1', project.link1);
+                card.setAttribute('link2', project.link2);
+                projectsContainer.appendChild(card);
+            });
+        })
+        .catch(error => console.error('Error fetching projects:', error));
+});
+
+// CustomElement project-card
+class ProjectCard extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        console.log('Shadow root attached'); // Debug log
+    }
+
+    connectedCallback() {
+        console.log('Project card connected'); // Check if this logs
+        const title = this.getAttribute('title') || 'Project Title';
+        const image = this.getAttribute('image') || 'default-image.jpg';
+        const description = this.getAttribute('description') || 'Project description goes here.';
+        const link1 = this.getAttribute('link1') || '#';
+        const link2 = this.getAttribute('link2') || '#';
+    
+        this.shadowRoot.innerHTML = `
+            <style>
+                .projectItem {
+                    display: flex;
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                .projectItem img {
+                    border-radius: 10px;
+                    margin: 1rem 0;
+                    width: 180px;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .projectItem img:hover {
+                    transform: scale(1.1);
+                }
+
+                .projectItem hgroup {
+                    flex-grow: 1;
+                    font-size: 160%;
+                }
+
+                h2 {
+                    color: var(--orange);
+                }
+
+                p {
+                    font-size: 30px;
+                }
+
+                .projectItem hgroup a {
+                    color: white;
+                }
+
+                .projectItem hgroup a:hover {
+                    color: var(--orange);
+                    transform: scale(1.1);
+                }
+            </style>
+
+            <article class="projectItem">
+                <a rel="noopener" target="_blank" href="${link1}">
+                    <picture>
+                        <img src="${image}" alt="${title}" loading="lazy" width="100">
+                    </picture>
+                </a>
+                <hgroup>
+                    <h2>${title}</h2>
+                    <p>${description}</p>
+                    <a rel="noopener" target="_blank" href="${link1}">
+                        Website
+                    </a>
+                    &nbsp;
+                    <a rel="noopener" target="_blank" href="${link2}">
+                        GitHub Repository
+                    </a>
+                </hgroup>
+            </article>
+            <hr>
+        `;
+    }
+}
+
+customElements.define('project-card', ProjectCard);

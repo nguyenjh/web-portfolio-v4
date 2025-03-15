@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="script.js"></script>
     <header id="projectspageHeader">
         <h1><a href="index.html">Julie Nguyen | Web Portfolio</a></h1>
         <nav>
@@ -32,8 +31,8 @@
             <search>
                 <form>
                     <label for="projectSearch">Search projects from the list:</label>
-                    <input list="projects" name="project" id="project" placeholder="Search Projects">
-                    <datalist id="projects">
+                    <input list="projectsDL" name="project" id="project" placeholder="Search Projects">
+                    <datalist id="projectsDL">
                         <option value="Code Names - ACM">
                         <option value="Plateful">
                         <option value="TaskRPG">
@@ -65,90 +64,7 @@
         <section id="projectspageSection">
             <article id="projects">
                 <h2>PROJECTS</h2>
-                <div class="projectItem">
-                    <a rel="noopener" target="_blank" href="https://codenames-acm.netlify.app/">
-                        <img src="./media/codenames.png" alt="codenames logo" loading="lazy" width="100">
-                    </a>
-                    <hgroup>
-                        <h3>Code Names - ACM</h3>
-                        <p>A digital recreation of the card game, Codenames.</p>
-                        <a rel="noopener" target="_blank" href="https://codenames-acm.netlify.app/">
-                            Website
-                        </a>
-                        &nbsp;
-                        <a rel="noopener" target="_blank" href="https://github.com/acmucsd-projects/sp23-hack-team-1">
-                            GitHub Repository
-                        </a>
-                    </hgroup>
-                </div>
-                <hr>
-                <div class="projectItem">
-                    <a rel="noopener" target="_blank" href="https://github.com/nguyenjh/CSE-110-Group-11">
-                        <img src="./media/plateful.png" alt="plateful logo" loading="lazy" width="100">
-                    </a>
-                    <hgroup>
-                        <h3>Plateful</h3>
-                        <p>Social-Sharing Recipe Platform.</p>
-                        <a rel="noopener" target="_blank" href="https://github.com/nguyenjh/CSE-110-Group-11">
-                            Website
-                        </a>
-                        &nbsp;
-                        <a rel="noopener" target="_blank" href="https://github.com/nguyenjh/CSE-110-Group-11">
-                            GitHub Repository
-                        </a>
-                    </hgroup>
-                </div>
-                <hr>
-                <div class="projectItem">
-                    <a rel="noopener" target="_blank" href="https://taskrpg.netlify.app/">
-                        <img src="./media/taskrpg.png" alt="taskrpg logo" loading="lazy" width="100">
-                    </a>
-                    <hgroup>
-                        <h3>TaskRPG</h3>
-                        <p>Gamified productivity website.</p>
-                        <a rel="noopener" target="_blank" href="https://taskrpg.netlify.app/">
-                            Website
-                        </a>
-                        &nbsp;
-                        <a class="repository-link" rel="noopener" target="_blank" href="https://github.com/nguyenjh/TaskRPG">
-                            GitHub Repository
-                        </a>
-                    </hgroup>
-                </div>
-                <hr>
-                <div class="projectItem">
-                    <a rel="noopener" target="_blank" href="https://juwie-ly.itch.io/the-lost-royal-cat">
-                        <img src="./media/lost_royal_cat.png" alt="the lost royal cat logo" loading="lazy" width="100">
-                    </a>
-                    <hgroup>
-                        <h3>The Lost Royal Cat</h3>
-                        <p>A simple 2D platformer game created using Unity.</p>
-                        <a rel="noopener" target="_blank" href="https://juwie-ly.itch.io/the-lost-royal-cat">
-                            Website
-                        </a>
-                        &nbsp;
-                        <a class="repository-link" rel="noopener" target="_blank" href="https://github.com/nguyenjh/The-Lost-Royal-Cat">
-                            GitHub Repository
-                        </a>
-                    </hgroup>
-                </div>
-                <hr>
-                <div class="projectItem">
-                    <a rel="noopener" target="_blank" href="https://github.com/nguyenjh/travel-serenity">
-                        <img src="./media/travel_serenity.png" alt="travel serenity logo" loading="lazy" width="100">
-                    </a>
-                    <hgroup>
-                        <h3>Travel Serenity</h3>
-                        <p>MERN stack hotel booking website.</p>
-                        <a rel="noopener" target="_blank" href="https://github.com/nguyenjh/travel-serenity">
-                            Website
-                        </a>
-                        &nbsp;
-                        <a class="repository-link" rel="noopener" target="_blank" href="https://github.com/nguyenjh/travel-serenity">
-                            GitHub Repository
-                        </a>
-                    </hgroup>
-                </div>
+                
             </article>
         </section>
     </main>
@@ -156,5 +72,6 @@
     <footer id="projectspageFooter">
         <p>Julie Nguyen | 2025</p>
     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

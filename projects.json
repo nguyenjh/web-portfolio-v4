@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Code Names - ACM",
+        "image": "./media/codenames.png",
+        "description": "A digital recreation of the card game, Codenames.",
+        "link1": "https://codenames-acm.netlify.app/",
+        "link2": "https://github.com/acmucsd-projects/sp23-hack-team-1"
+    },
+    {
+        "title": "Plateful",
+        "image": "./media/plateful.png",
+        "description": "Social-Sharing Recipe Platform.",
+        "link1": "https://github.com/nguyenjh/CSE-110-Group-11",
+        "link2": "https://github.com/nguyenjh/CSE-110-Group-11"
+    },
+    {
+        "title": "TaskRPG",
+        "image": "./media/taskrpg.png",
+        "description": "Gamified productivity website.",
+        "link1": "https://taskrpg.netlify.app/",
+        "link2": "https://github.com/nguyenjh/TaskRPG"
+    },
+    {
+        "title": "The Lost Royal Cat",
+        "image": "./media/lost_royal_cat.png",
+        "description": "A simple 2D platformer game created using Unity.",
+        "link1": "https://juwie-ly.itch.io/the-lost-royal-cat",
+        "link2": "https://github.com/nguyenjh/The-Lost-Royal-Cat"
+    },
+    {
+        "title": "Travel Serenity",
+        "image": "./media/travel_serenity.png",
+        "description": "MERN stack hotel booking website.",
+        "link1": "https://github.com/nguyenjh/travel-serenity",
+        "link2": "https://github.com/nguyenjh/travel-serenity"
+    }
+]
