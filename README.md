@@ -1,1 +1,3 @@
 # web-portfolio-v4
+## Enhancements:
+On the projects page, I added a hover effect for project-card's to improve the visual feedback when users hover over project cards, which makes the interaction more intuitive and visually appealing. I also added light-theme styling to project-card's. In addition, I fixed the projects page's css scrolling bug error cause by max-height property, and I fixed the positioning of the projects page's footer. On the contact page, I updated the contact form to use the mailto: protocol for email submissions that is pre-filled email subject and body with the form's data, and I added a confirmation popup to notify users before it opens the email client.
