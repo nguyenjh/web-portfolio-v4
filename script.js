@@ -121,6 +121,15 @@ class ProjectCard extends HTMLElement {
                     gap: 1rem;
                     margin-bottom: 1rem;
                 }
+                
+                .projectItem:hover {
+                    background: rgba(53, 53, 53, 0.3);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    transform: translateY(-2px);
+                    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+                }
 
                 .projectItem img {
                     border-radius: 10px;
@@ -153,6 +162,18 @@ class ProjectCard extends HTMLElement {
                 .projectItem hgroup a:hover {
                     color: var(--orange);
                     transform: scale(1.1);
+                }
+
+                :host-context(.light-theme) h2 {
+                    color: var(--accent-color);
+                }
+
+                :host-context(.light-theme) a {
+                    color: var(--text-color);
+                }
+
+                :host-context(.light-theme) a:hover {
+                    color: var(--accent-color);
                 }
             </style>
 
