@@ -10,6 +10,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const formErrorsField = document.getElementById("form-errors");
     let form_errors = [];
 
+    // MailToURL Submit
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const comments = document.getElementById("comments").value;
+
+        const subject = `Contact Form Submission from ${name}`;
+        const body = `${comments}`;
+        const mailtoUrl = `mailto:jhn013@ucsd.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        const confirmSend = confirm("Your email client will open to send the message. Continue?");
+        if (confirmSend) {
+            window.location.href = mailtoUrl;
+        }
+    });
+
     // Allowed character regex for name & comments
     const allowedChars = /^[A-Za-z0-9\s.,!?'"-]*$/;
 
