@@ -98,38 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Fetch data from projects.json
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed'); // Check if this logs
-
-    fetch('projects.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data fetched:', data); // Check if this logs the correct data
-            const projectsContainer = document.getElementById('projects');
-            if (!projectsContainer) {
-                console.error('Projects container not found');
-                return;
-            }
-            console.log('Projects container found:', projectsContainer); // Check if this logs
-            data.forEach(project => {
-                const card = document.createElement('project-card');
-                card.setAttribute('title', project.title);
-                card.setAttribute('image', project.image);
-                card.setAttribute('description', project.description);
-                card.setAttribute('link1', project.link1);
-                card.setAttribute('link2', project.link2);
-                projectsContainer.appendChild(card);
-            });
-        })
-        .catch(error => console.error('Error fetching projects:', error));
-});
-
 // CustomElement project-card
 class ProjectCard extends HTMLElement {
     constructor() {
@@ -212,3 +180,151 @@ class ProjectCard extends HTMLElement {
 }
 
 customElements.define('project-card', ProjectCard);
+
+// Data Loading
+// Default data to store in localStorage
+const defaultData = [
+    {
+        "title": "Code Names - ACM",
+        "image": "./media/codenames.png",
+        "description": "A digital recreation of the card game, Codenames.",
+        "link1": "https://codenames-acm.netlify.app/",
+        "link2": "https://github.com/acmucsd-projects/sp23-hack-team-1"
+    },
+    {
+        "title": "Plateful",
+        "image": "./media/plateful.png",
+        "description": "Social-Sharing Recipe Platform.",
+        "link1": "https://github.com/nguyenjh/CSE-110-Group-11",
+        "link2": "https://github.com/nguyenjh/CSE-110-Group-11"
+    },
+    {
+        "title": "TaskRPG",
+        "image": "./media/taskrpg.png",
+        "description": "Gamified productivity website.",
+        "link1": "https://taskrpg.netlify.app/",
+        "link2": "https://github.com/nguyenjh/TaskRPG"
+    },
+    {
+        "title": "The Lost Royal Cat",
+        "image": "./media/lost_royal_cat.png",
+        "description": "A simple 2D platformer game created using Unity.",
+        "link1": "https://juwie-ly.itch.io/the-lost-royal-cat",
+        "link2": "https://github.com/nguyenjh/The-Lost-Royal-Cat"
+    },
+    {
+        "title": "Travel Serenity",
+        "image": "./media/travel_serenity.png",
+        "description": "MERN stack hotel booking website.",
+        "link1": "https://github.com/nguyenjh/travel-serenity",
+        "link2": "https://github.com/nguyenjh/travel-serenity"
+    }
+];
+
+// Save default data to localStorage if it doesn't exist
+if (!localStorage.getItem('projects')) {
+    localStorage.setItem('projects', JSON.stringify(defaultData));
+}
+
+// Load local
+document.getElementById('load-local').addEventListener('click', () => {
+    const projects = JSON.parse(localStorage.getItem('projects'));
+    populateProjects(projects);
+});
+
+// Load remote
+document.getElementById('load-remote').addEventListener('click', () => {
+    fetch('https://my-json-server.typicode.com/nguyenjh/web-portfolio-v4-My-JSON-Server/projects')
+        .then(response => response.json())
+        .then(data => {
+            populateProjects(data);
+        })
+        .catch(error => console.error('Error fetching remote data:', error));
+});
+
+// Populate project-card's
+function populateProjects(projects) {
+    const projectsContainer = document.getElementById('projects');
+    projectsContainer.innerHTML = ''; // Clear existing cards
+
+    projects.forEach(project => {
+        const card = document.createElement('project-card');
+        card.setAttribute('title', project.title);
+        card.setAttribute('image', project.image);
+        card.setAttribute('description', project.description);
+        card.setAttribute('link1', project.link1);
+        card.setAttribute('link2', project.link2);
+        projectsContainer.appendChild(card);
+    });
+}
+
+// Function to create a blank project card
+function createBlankCard() {
+    const card = document.createElement('project-card');
+    card.setAttribute('title', 'Project Title');
+    card.setAttribute('image', './media/placeholder.png'); // Use a placeholder image
+    card.setAttribute('description', 'Project description goes here.');
+    card.setAttribute('link1', '#');
+    card.setAttribute('link2', '#');
+    return card;
+}
+
+// Function to populate blank cards
+function populateBlankCards(count) {
+    const projectsContainer = document.getElementById('projects');
+    projectsContainer.innerHTML = ''; // Clear existing cards
+
+    for (let i = 0; i < count; i++) {
+        const card = createBlankCard();
+        projectsContainer.appendChild(card);
+    }
+}
+
+// Populate blank cards when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsContainer = document.getElementById('projects');
+    projectsContainer.innerHTML = ''; // Clear any existing content
+
+    // Add the buttons
+    const buttonContainer = document.createElement('div');
+    buttonContainer.innerHTML = `
+        <button id="load-local">Load Local</button>
+        <button id="load-remote">Load Remote</button>
+    `;
+    projectsContainer.appendChild(buttonContainer);
+
+    // Add blank cards
+    populateBlankCards(5); // Create 5 blank cards
+});
+
+// // Fetch data from projects.json
+// document.addEventListener('DOMContentLoaded', () => {
+//     console.log('DOM fully loaded and parsed'); // Check if this logs
+
+//     fetch('projects.json')
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log('Data fetched:', data); // Check if this logs the correct data
+//             const projectsContainer = document.getElementById('projects');
+//             if (!projectsContainer) {
+//                 console.error('Projects container not found');
+//                 return;
+//             }
+//             console.log('Projects container found:', projectsContainer); // Check if this logs
+//             data.forEach(project => {
+//                 const card = document.createElement('project-card');
+//                 card.setAttribute('title', project.title);
+//                 card.setAttribute('image', project.image);
+//                 card.setAttribute('description', project.description);
+//                 card.setAttribute('link1', project.link1);
+//                 card.setAttribute('link2', project.link2);
+//                 projectsContainer.appendChild(card);
+//             });
+//         })
+//         .catch(error => console.error('Error fetching projects:', error));
+// });

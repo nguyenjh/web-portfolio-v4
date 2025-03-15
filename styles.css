@@ -362,7 +362,7 @@ aside dl dd button {
     flex-direction: column;
 }
 
-#projects h2 {
+#h2ProjectTitle {
     font-size: 200%;
     text-decoration: underline;
     color: var(--orange);
