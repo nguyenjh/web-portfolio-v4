@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="crudpageHeader">
+        <h1><a href="index.html">Julie Nguyen | Web Portfolio</a></h1>
+        <nav>
+            <ul>
+                <li><button id="theme-toggle" aria-label="Toggle Theme">⏾</button></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="workExp.html">Work Experience</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="crud.html">CRUD</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <img id="backgroundImg" src="./media/laptop.avif" alt="laptop photo">
+
+    <main id="crudpageMain">
+        <h2>CRUD Operations</h2>
+        <form id="crudForm">
+            <fieldset id="fieldsetCRUD">
+                <form-field>
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" placeholder="Enter ID" required>
+                </form-field>
+                
+                <form-field>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                </form-field>
+                
+                <form-field>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" placeholder="Enter Description" required></textarea>
+                </form-field>
+            </fieldset>
+            
+            <button type="submit" id="createBtn">Create</button>
+            <button type="button" id="readBtn">Read</button>
+            <button type="button" id="updateBtn">Update</button>
+            <button type="button" id="deleteBtn">Delete</button>
+        </form>
+
+        <h3>Data Table</h3>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </main>
+
+    <footer id="crudpageFooter">
+        <p>Julie Nguyen | 2025</p>
+    </footer>
+
+    <script src="crud.js"></script>
+</body>
+</html>
