@@ -197,6 +197,7 @@ class ProjectCard extends HTMLElement {
             <article class="projectItem">
                 <a rel="noopener" target="_blank" href="${link1}">
                     <picture>
+                        <source media="(min-width:650px)" srcset="${image}">
                         <img src="${image}" alt="${title}" loading="lazy" width="100">
                     </picture>
                 </a>
